@@ -1,5 +1,6 @@
 # Repositório
-Repositório com as submissões que eu fiz do Beecrowd\n
+Repositório com as submissões que eu fiz do Beecrowd
+
 Linguagens: Python
 
 # Meu perfil
