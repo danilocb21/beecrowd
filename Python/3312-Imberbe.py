@@ -1,3 +1,5 @@
+# Questão não finaliza - Está errada.
+
 cache = {}
 
 def fatorial(num):
