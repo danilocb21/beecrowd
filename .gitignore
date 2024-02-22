@@ -1,4 +1,5 @@
 .vscode/c_cpp_properties.json
 .vscode
 *.exe
-template.cpp
+template*.cpp
+.cph
