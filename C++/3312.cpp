@@ -33,15 +33,6 @@ using pll = pair<ll, ll>;
     cin.tie(NULL);
 template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
-bool isPrime(int n) {
-    if (n <= 2 || n%2==0)
-        return n == 2;
-    for (int i = 3; i*i <= n; i+=2) {
-        if (n%i==0) return false;
-    }
-    return true;
-}
-
 string numToStr(int x) {
     string num;
     while (x > 0) {
@@ -71,17 +62,30 @@ void multiply_bigint(string& num, int x) {
     }
 }
 
+int primes[101];
 void solve()
 {
+    primes[0]=primes[1]=true;
+    for (int i = 2; i*i <= 100; i++) {
+        if (primes[i]) continue;
+        for (int p = i*i; p <= 100; p+=i) {
+            primes[p] = true;
+        }
+    }
+    vector<string> v(101);
+    for (int i = 0; i <= 100; i++) {
+	    if (!primes[i]) {
+	    	v[i] = numToStr(i);
+	    	int k = i;
+	    	while(k>2) multiply_bigint(v[i], --k);
+	    	reverse(all(v[i]));
+	    }
+    }
     int n; cin >> n;
     while (n--) {
         int x; cin >> x;
-        if (isPrime(x)) {
-            string fact = numToStr(x);
-            int k = x;
-            while (k>2) multiply_bigint(fact, --k);
-            reverse(all(fact));
-            cout << x << "! = " << fact << endl;
+        if (!primes[x]) {
+            cout << x << "! = " << v[x] << endl;
         }
     }   
 }
