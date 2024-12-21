@@ -1,6 +1,9 @@
 .vscode/c_cpp_properties.json
 .vscode
 *.exe
+*.o
+*.out
+*.txt
 template*.cpp
 debug.*
 .cph
